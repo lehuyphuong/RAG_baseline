@@ -1,0 +1,29 @@
+# slide-rag dependencies
+# Python 3.10+
+
+# Data loading (Zenodo10K dataset metadata + .pptx download)
+datasets>=2.19.0
+huggingface-hub>=0.23.0
+httpx>=0.27.0
+
+# Slide parsing (text + per-slide rendering)
+python-pptx>=1.0.0
+pymupdf>=1.24.0       # rasterize LibreOffice-exported PDF pages to PNG
+Pillow>=10.0.0
+
+# Image embedding (CLIP, local inference — requires a working torch install)
+# CPU-only:  pip install torch --index-url https://download.pytorch.org/whl/cpu
+# CUDA 12.1: pip install torch --index-url https://download.pytorch.org/whl/cu121
+torch>=2.1.0
+open_clip_torch>=2.24.0
+
+# Vector store
+qdrant-client>=1.9.0
+
+# Testing
+pytest>=8.0.0
+
+# NOTE: rendering pptx -> PDF requires LibreOffice ("libreoffice"/"soffice")
+# to be installed and on PATH. Install via your OS package manager, e.g.:
+#   Ubuntu/Debian: sudo apt install libreoffice
+#   macOS:         brew install --cask libreoffice
